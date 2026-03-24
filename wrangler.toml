@@ -1,0 +1,29 @@
+name = "followme-cloudflare"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+# ─── Routes ───────────────────────────────────────────────
+[[routes]]
+pattern = "api.followme.direct/*"
+custom_domain = true
+
+# ─── R2 Bucket binding ────────────────────────────────────
+[[r2_buckets]]
+binding = "MEDIA_BUCKET"
+bucket_name = "followme-media"
+
+# ─── Public environment variables (non-secret) ────────────
+[vars]
+R2_BUCKET_NAME = "followme-media"
+CDN_BASE_URL = "https://cdn.followme.direct"
+ENVIRONMENT = "production"
+
+# ─── Secrets (set via: wrangler secret put <NAME>) ────────
+# CF_STREAM_TOKEN
+# R2_ACCESS_KEY_ID
+# R2_SECRET_ACCESS_KEY
+#
+# To set:
+#   wrangler secret put CF_STREAM_TOKEN
+#   wrangler secret put R2_ACCESS_KEY_ID
+#   wrangler secret put R2_SECRET_ACCESS_KEY
