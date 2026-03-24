@@ -1,0 +1,22 @@
+{
+  "name": "followme-cloudflare",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker for FollowMe.direct - media/API layer (Stream + R2)",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:dry": "wrangler deploy --dry-run",
+    "secrets:set": "wrangler secret put CF_STREAM_TOKEN && wrangler secret put R2_ACCESS_KEY_ID && wrangler secret put R2_SECRET_ACCESS_KEY",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["cloudflare-worker", "cloudflare-stream", "cloudflare-r2", "followme"],
+  "license": "UNLICENSED",
+  "private": true
+}
